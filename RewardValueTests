@@ -1,0 +1,58 @@
+package test.java;
+
+import main.java.RewardValue;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class RewardValueTests {
+    @Test
+    public void testCashToMilesConversion() {
+        // Given
+        double cashValue = 100.0;
+        double expectedMiles = cashValue / 0.0035;
+
+        // When
+        RewardValue rewardValue = new RewardValue(cashValue);
+
+        // Then
+        assertEquals(expectedMiles, rewardValue.getMilesValue(), 0.0001);
+    }
+
+    @Test
+    public void testMilesToCashConversion() {
+        // Given
+        int milesValue = 10000;
+        double expectedCash = milesValue * 0.0035;
+
+        // When
+        RewardValue rewardValue = new RewardValue(milesValue);
+
+        // Then
+        assertEquals(expectedCash, rewardValue.getCashValue(), 0.0001);
+    }
+
+    @Test
+    public void testGetCashValue() {
+        // Given
+        double cashValue = 100.0;
+
+        // When
+        RewardValue rewardValue = new RewardValue(cashValue);
+
+        // Then
+        assertEquals(cashValue, rewardValue.getCashValue(), 0.0001);
+    }
+
+    @Test
+    public void testGetMilesValue() {
+        // Given
+        int milesValue = 10000;
+        double expectedCash = milesValue * 0.0035;
+
+        // When
+        RewardValue rewardValue = new RewardValue(milesValue);
+
+        // Then
+        assertEquals(milesValue, rewardValue.getMilesValue(), 0.0001);
+    }
+}
